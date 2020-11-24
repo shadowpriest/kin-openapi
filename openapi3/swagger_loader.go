@@ -175,37 +175,37 @@ func (swaggerLoader *SwaggerLoader) ResolveRefsIn(swagger *Swagger, path *url.UR
 	components := swagger.Components
 	for _, component := range components.Headers {
 		if err = swaggerLoader.resolveHeaderRef(swagger, component, path); err != nil {
-			return
+			continue
 		}
 	}
 	for _, component := range components.Parameters {
 		if err = swaggerLoader.resolveParameterRef(swagger, component, path); err != nil {
-			return
+			continue
 		}
 	}
 	for _, component := range components.RequestBodies {
 		if err = swaggerLoader.resolveRequestBodyRef(swagger, component, path); err != nil {
-			return
+			continue
 		}
 	}
 	for _, component := range components.Responses {
 		if err = swaggerLoader.resolveResponseRef(swagger, component, path); err != nil {
-			return
+			continue
 		}
 	}
 	for _, component := range components.Schemas {
 		if err = swaggerLoader.resolveSchemaRef(swagger, component, path); err != nil {
-			return
+			continue
 		}
 	}
 	for _, component := range components.SecuritySchemes {
 		if err = swaggerLoader.resolveSecuritySchemeRef(swagger, component, path); err != nil {
-			return
+			continue
 		}
 	}
 	for _, component := range components.Examples {
 		if err = swaggerLoader.resolveExampleRef(swagger, component, path); err != nil {
-			return
+			continue
 		}
 	}
 
@@ -215,7 +215,7 @@ func (swaggerLoader *SwaggerLoader) ResolveRefsIn(swagger *Swagger, path *url.UR
 			continue
 		}
 		if err = swaggerLoader.resolvePathItemRef(swagger, entrypoint, pathItem, path); err != nil {
-			return
+			continue
 		}
 	}
 
